@@ -1,0 +1,385 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #3a3a3a;
+    background: linear-gradient(rgba(14, 6, 6, 0.685), rgba(248, 244, 244, 0.938)), 
+            url('../img/usenvfit.jpeg') no-repeat center/cover;
+}
+
+
+/* Header fixo */
+header {
+    position: sticky; /* Fixa o header no topo da página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Cor semitransparente */
+    color: #fff;
+    padding: 0.5rem 2rem;
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    transition: background 0.3s ease, top 0.3s ease; /* Suavidade na cor e na posição */
+}
+
+/* Efeito de deslizamento para o título */
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* Classe para ocultar o header quando rolar */
+header.hidden {
+    top: -300px; /* Move o header para fora da tela */
+}
+
+/* Mudança de cor do header quando rolar a página */
+header.scrolled {
+    background: rgba(0, 0, 0, 0.8); /* Escurece o fundo ao rolar */
+}
+
+/* Efeito de deslizamento para o título */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Estilo do container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Estilos do menu */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+/* Estilo de links de navegação */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover nos links de navegação */
+nav a:hover {
+    background: #f4a261;
+    border-radius: 5px;
+    transform: translateY(-2px); /* Levantar um pouco o link */
+}
+
+/* Estilos para o menu responsivo (quando a tela for pequena) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
+}
+
+
+section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#home {
+    margin-top: 100px; /* Ajuste de acordo com a altura do header */
+    /* ou */
+    padding-top: 100px;
+}
+
+section#home {
+    text-align: center;
+    background: #fdfcfc; /* Cor de fundo dourada */
+    background-image: url('../img/usenvfit.jpeg'); /* Caminho do logo */
+    background-repeat: no-repeat;
+    background-size: 30%; /* Reduzir o tamanho da imagem */
+    background-position: center;
+    color: #fff; /* Texto branco para contraste */
+    padding: 1.5rem 5rem; /* Diminuir o padding para ficar mais compacto */
+    position: relative;
+    overflow: hidden; /* Para garantir que a animação não ultrapasse os limites */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Reduzir altura para não ocupar tanto espaço */
+    
+}
+
+/* Camada de sobreposição para escurecer o fundo */
+section#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Escurecer mais o logo */
+    animation: rotateLogo 10s infinite linear;
+    z-index: -1; /* Coloca o efeito de escurecimento atrás do conteúdo */
+}
+
+/* Animação de rotação contínua do logo */
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mantém os elementos visíveis acima da camada de rotação */
+section#home > * {
+    position: relative;
+    z-index: 2; /* Mantém os textos acima do filtro */
+}
+
+/* Título principal */
+section#home h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem; /* Reduzir o tamanho do título */
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para destaque */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Botões de chamada para ação */
+section#home .btn {
+    display: inline-block;
+    background: #f4a261;
+    color: #fff;
+    padding: 0.8rem 1.5rem; /* Reduzir o padding do botão */
+    font-size: 1rem; /* Reduzir o tamanho da fonte do botão */
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Efeito de hover no botão */
+section#home .btn:hover {
+    background: #e76f51; /* Cor mais escura no hover */
+    transform: scale(1.1); /* Aumentar o botão ao passar o mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombras para dar destaque */
+}
+
+/* Efeito de fade-in para o texto */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de animação na seção de destaque */
+section#home:hover {
+    transform: scale(1.05); /* Aumenta a seção de destaque quando o mouse passa por cima */
+    transition: transform 0.5s ease; /* Suaviza a animação */
+}
+
+
+
+/* Grid de produtos */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Mantém o layout responsivo */
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+.produto {
+    text-align: center;
+    background-color: #f9f9f9; /* Cor de fundo dos produtos */
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+.produto img {
+    width: 100%;
+    height: 200px; /* Altura fixa para manter o layout quadrado */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border-radius: 8px; /* Bordas arredondadas nas imagens */
+}
+
+.produto:hover {
+    transform: scale(1.05); /* Efeito ao passar o mouse */
+}
+
+.produto h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.produto p {
+    font-size: 16px;
+    color: #333;
+}
+
+.produto button {
+    background-color: #ff4081; /* Cor do botão */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.produto button:hover {
+    background-color: #e33772; /* Cor do botão ao passar o mouse */
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+p {
+    color: #000000; /* Substitua por uma cor mais escura se necessário */
+}
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+footer .social-icon {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+footer .social-icon:hover {
+    color: #f4a261; /* Cor para o efeito de hover */
+}
+
+footer .social-icon i {
+    margin-right: 8px;
+}
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25d366; /* Cor do WhatsApp */
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-link i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.whatsapp-link:hover {
+    background-color: #128c7e; /* Cor de hover do WhatsApp */
+}
+
+.produto {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.produto img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.produto:hover {
+    transform: scale(1.05);
+}
+#localizacao .mapa {
+    text-align: center; /* Centraliza o mapa */
+    margin-top: 2rem; /* Adiciona um espaço acima do mapa */
+}
+
+#localizacao iframe {
+    border-radius: 8px; /* Adiciona borda arredondada ao mapa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao mapa */
+}
+#quem-somos, #localizacao, #contato {
+    color: #000000; /* Cor preta para melhor contraste */
+    font-weight: bold; /* Tornar o texto mais visível */
+}
+
+#quem-somos h2, #localizacao h2, #contato h2 {
+    font-size: 1.5rem; /* Tamanho do título ajustado */
+    text-align: center;
+    color: #000000; /* Cor escura nos títulos */
+}
+
+.mapa {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.mapa iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
