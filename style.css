@@ -383,3 +383,11 @@ footer .social-icon i {
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
+.zoomable {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.zoomed {
+    transform: scale(1.8); /* Aumenta 1.8x quando ativado */
+}
