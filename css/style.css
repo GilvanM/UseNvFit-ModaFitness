@@ -138,6 +138,8 @@ section#home {
     justify-content: center;
     align-items: center;
     height: 40vh; /* Reduzir altura para não ocupar tanto espaço */
+    
+}
 
 /* Camada de sobreposição para escurecer o fundo */
 section#home::before {
