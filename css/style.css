@@ -111,6 +111,49 @@ nav a:hover {
     }
 }
 
+@media screen and (max-width: 768px) {
+    section#home {
+        height: auto; /* Ajusta a altura automaticamente */
+        min-height: 60vh; /* Garante um mínimo de altura */
+        padding: 2rem 1rem; /* Reduz padding lateral */
+        background-size: 50%; /* Aumenta o logo no fundo */
+        flex-direction: column; /* Garante alinhamento correto */
+    }
+
+    .content {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .content h2 {
+        font-size: 1.5rem; /* Ajusta o tamanho do título */
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section#home {
+        min-height: 70vh; /* Maior altura para celulares menores */
+        background-size: 60%;
+    }
+
+    .content h2 {
+        font-size: 1.3rem;
+    }
+
+    .content p {
+        font-size: 0.9rem;
+    }
+}
+
 
 section {
     padding: 2rem 1rem;
