@@ -128,7 +128,7 @@ section#home {
     background: #fdfcfc; /* Cor de fundo dourada */
     background-image: url('../img/usenvfit.jpeg'); /* Caminho do logo */
     background-repeat: no-repeat;
-    background-size: 20%; /* Reduzir o tamanho da imagem */
+    background-size: 10%; /* Reduzir o tamanho da imagem */
     background-position: center;
     color: #fff; /* Texto branco para contraste */
     padding: 1.5rem 5rem; /* Diminuir o padding para ficar mais compacto */
