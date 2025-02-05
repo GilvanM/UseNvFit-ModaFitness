@@ -20,3 +20,16 @@ window.onscroll = function() {
         header.classList.remove("scrolled");
     }
 };
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".zoomable");
+
+    images.forEach(img => {
+        img.addEventListener("click", function () {
+            this.classList.add("zoomed");
+        });
+
+        img.addEventListener("mouseleave", function () {
+            this.classList.remove("zoomed");
+        });
+    });
+});
