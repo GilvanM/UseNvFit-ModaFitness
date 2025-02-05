@@ -131,7 +131,7 @@ section#home {
     background-size: 30%; /* Reduzir o tamanho da imagem */
     background-position: center;
     color: #fff; /* Texto branco para contraste */
-    padding: 1.5rem 5rem; /* Diminuir o padding para ficar mais compacto */
+    padding: 1.5rem 3rem; /* Diminuir o padding para ficar mais compacto */
     position: relative;
     overflow: hidden; /* Para garantir que a animação não ultrapasse os limites */
     display: flex;
@@ -140,7 +140,23 @@ section#home {
     height: 40vh; /* Reduzir altura para não ocupar tanto espaço */
     
 }
+/* Para tablets e celulares */
+@media screen and (max-width: 768px) {
+    section#home {
+        background-size: 25%; /* Ajustar tamanho da imagem para telas menores */
+        padding: 1rem 2rem;
+        height: 35vh;
+    }
+}
 
+/* Para celulares menores */
+@media screen and (max-width: 480px) {
+    section#home {
+        background-size: 30%; /* Ajuste para telas bem pequenas */
+        padding: 0.8rem 1rem;
+        height: 30vh;
+    }
+}
 /* Camada de sobreposição para escurecer o fundo */
 section#home::before {
     content: "";
