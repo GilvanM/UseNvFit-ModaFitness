@@ -33,3 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleciona todos os links do WhatsApp
+    const botoesWhatsApp = document.querySelectorAll(".whatsapp-link");
+
+    botoesWhatsApp.forEach(botao => {
+        botao.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita o redirecionamento direto
+
+            // Pega o nome do produto (o texto dentro do <h3> mais próximo)
+            const produtoNome = botao.closest(".produto").querySelector(".produto-nome").textContent.trim();
+
+            // Pega o número do WhatsApp do atributo data-numero
+            const numeroWhatsApp = botao.getAttribute("data-numero");
+
+            // Cria a mensagem personalizada
+            const mensagem = encodeURIComponent(`Olá! Quero mais informações sobre o produto: ${produtoNome}.`);
+
+            // Gera o link do WhatsApp com a mensagem personalizada
+            const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+
+            // Abre o WhatsApp
+            window.open(linkWhatsApp, "_blank");
+        });
+    });
+});
